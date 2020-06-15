@@ -1,4 +1,6 @@
 import java.util.*
+import java.util.function.Consumer
+import kotlin.collections.ArrayList
 
 fun main(args:Array<String>){
     print("Hola")
@@ -55,6 +57,37 @@ fun main(args:Array<String>){
     calcularSueldo(700.00)
     calcularSueldo(sueldo = 650.00)
 
+    //ARREGLOS
+    val arregloConstante: Array<Int> = arrayOf(1,2,3)
+    val arregloCumpleanos:ArrayList<Int> = arrayListOf(30,31,22,23,20)
+    arregloCumpleanos.add(24)
+    print(arregloCumpleanos)
+    arregloCumpleanos.remove(30)
+    print(arregloCumpleanos)
+
+    //RECORRER UN ARREGLO
+    arregloCumpleanos.forEach{
+        println("valor de la iteacion " + it)
+    }
+
+    arregloCumpleanos.forEach(
+            {
+                valorIteracion: Int->
+                println("valor de la iteacion " + valorIteracion)
+            }
+    )
+
+    arregloCumpleanos.forEach{
+                valorIteracion: Int->
+                println("valor de la iteacion " + valorIteracion)
+            }
+
+    arregloCumpleanos.forEachIndexed{index:Int, it:Int ->
+        println("valor de iteracion "+ it)
+    }
+
+
+
 }
 
 
@@ -65,7 +98,7 @@ fun calcularSueldo(
         tasa: Double = 12.00, // Requeridos! Tiene valor defecto
         //calculoEspecial: Boolean? //Opcional!!
         calculoEspecial: Int? = null //Opcional!!! Pueden ser nulos
-): Double { //lo que vamos a devolver
+): Double { //lo que vamos a devolver si pones
     if (calculoEspecial != null) {
         return sueldo * tasa * calculoEspecial
     } else {
