@@ -82,10 +82,49 @@ fun main(args:Array<String>){
                 println("valor de la iteacion " + valorIteracion)
             }
 
+    arregloCumpleanos.forEach{ iteracion:Int ->
+        println("valor de la iteacion " + iteracion)
+    }
+
     arregloCumpleanos.forEachIndexed{index:Int, it:Int ->
         println("valor de iteracion "+ it)
     }
 
+    //OPERADORES
+    //FOREACH -> no devuelve nada
+    arregloCumpleanos.forEach{ iteracion:Int ->
+        println("valor de la iteacion " + iteracion)
+
+        println(" valor con -1 = ${iteracion * -1} ")
+    }
+
+    println(arregloCumpleanos)
+
+   val respuesatArregloForEach= arregloCumpleanos.forEachIndexed{index:Int, it:Int ->
+        println("valor de iteracion "+ it)
+    }
+    println(respuesatArregloForEach) //void unit
+
+
+    //MAP -> Muta el arreglo (cambia el arreglo)
+    // 1)Enviemos el nuevo valot de la iteracion
+    //2) nos devulve es un nuevo arreglo con los valores modificados
+
+    val respuestaMap = arregloCumpleanos.map{iterador : Int ->
+        iterador * -1
+    }
+    println(respuestaMap)
+    println(arregloCumpleanos)
+
+    val respuestaMapDos:List<Int> = arregloCumpleanos.map{
+        iterador : Int ->
+       val nuevoValor =  iterador * -1
+        val otroValor = nuevoValor * 2
+        return@map otroValor
+    }
+    println(respuestaMap)
+    println(respuestaMapDos)
+    println(arregloCumpleanos)
 
 
 }
