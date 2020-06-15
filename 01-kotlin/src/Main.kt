@@ -118,13 +118,33 @@ fun main(args:Array<String>){
 
     val respuestaMapDos:List<Int> = arregloCumpleanos.map{
         iterador : Int ->
-       val nuevoValor =  iterador * -1
+        val nuevoValor =  iterador * -1
         val otroValor = nuevoValor * 2
+
         return@map otroValor
     }
     println(respuestaMap)
     println(respuestaMapDos)
     println(arregloCumpleanos)
+
+
+    // FILTER -> FILTRAR EL ARREGLO
+    //1) devolver una expresion (TRUE O FALSE)
+    //2) Nuevo arreglo que cumpla esa expresion
+    val respuestaFilter: List<Int> = arregloCumpleanos
+            .filter {
+        iteracion:Int ->
+        val esMayorA23:Boolean = iteracion > 23
+        return@filter esMayorA23
+    }
+    arregloCumpleanos.filter {
+        iteracion:Int -> iteracion > 23
+    }
+    println(respuestaFilter)
+    println(arregloCumpleanos)
+
+
+
 
 
 }
