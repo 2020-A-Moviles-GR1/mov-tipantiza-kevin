@@ -194,13 +194,14 @@ fun main(args:Array<String>){
     // 18
     val vidaActual: Double = arregloCumpleanos
             .map {it * 0.8} //reducir en el 20%
-            .filter {it > 18} 
+            .filter {it > 18}
             .fold(
                     100.00,
                     {
                         acumulador, iterador -> acumulador -iterador
                     }
             )
+           // .also { print(it) }
 
 
  println(vidaActual)
@@ -226,6 +227,54 @@ fun calcularSueldo(
 fun imprimirMensaje():Unit { //unit = void
     println("")
 }
+
+//CLASES ABSTRACTAS
+
+/*abstract class NumerosJava{
+    val numeroUno: Int
+    val numeroDos: Int
+    constructor(uno: Int, dos: Int){
+        numeroUno = uno
+        numeroDos = dos
+    }
+}*/
+
+abstract class NumerosKotlin( //val nuevosNuemeros = Numeros(1,2)
+       protected val numeroUno: Int,
+        protected val numeroDos: Int
+){
+
+}
+
+class Suma(
+       uno : Int, //parametro
+       dos:Int //parametro
+):NumerosKotlin(uno, dos ) //mandamos construtor de numerosKotlin - calse heredada
+{
+    fun sumar(): Int{
+        return this.numeroUno + this.numeroDos
+    }
+
+}
+
+class SumaDos(
+       public var  uno : Int, //propiedades
+       public var dos:Int //propiedades
+):NumerosKotlin(uno, dos ) //mandamos construtor de numerosKotlin - calse heredada
+{
+
+    fun sumar(): Int{
+        this.uno
+        this.dos
+        return this.numeroUno + this.numeroDos
+    }
+
+}
+
+
+
+
+
 
 
 
