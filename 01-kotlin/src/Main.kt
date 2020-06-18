@@ -143,9 +143,68 @@ fun main(args:Array<String>){
     println(respuestaFilter)
     println(arregloCumpleanos)
 
+    //ANY -> FIlTRAR EL ARREGLO
+    //ANY ->  OR (SOME)
+    //ALL -> AND (EVERY)
+    //AND--> TRUE, TODO LO DEMAS ES FALSO
+    // OR-> TODO SI ES FALSO TODO ES FALSO, LO DEMAS ERA VERDADERO
+    //1) DEVOLVER UNA EXPRESION (TRUE O FALSE)
+    //2) DEVUELVE UN BOOLENANO
+
+    val respuestaAny:Boolean = arregloCumpleanos.any{
+        iterator:Int ->
+        return@any iterator < 25
+    }
+
+    println(respuestaAny)
 
 
+    val respuestaAll:Boolean = arregloCumpleanos.all{
+        iterator:Int ->
+        return@all iterator > 65
+    }
 
+    println(respuestaAll)
+
+    //REDUCE
+    //1) DEVUELVE EL ACUMULADO
+    //2) EN QUE VALOR EMPIEZA
+    //DEVULVE UN NUMERO
+    //("a","b","c","d") -> "abcd" concatenera string
+
+    val respuestaReduce = arregloCumpleanos //Acumulador siempre empiza vacio
+            .reduce { acumulador, iteracion ->
+
+        return@reduce acumulador + iteracion
+    }
+    println(respuestaReduce)
+
+    val respuestaFold:Int = arregloCumpleanos
+            .fold(
+                    100,
+                    { acumulador, iteracion ->
+                        return@fold acumulador - iteracion
+                    }
+            )
+    println(respuestaFold)
+
+
+    //SITUACION
+    // REDUCIR EL DAÑO EN 20%
+    // 18
+    val vidaActual: Double = arregloCumpleanos
+            .map {it * 0.8} //reducir en el 20%
+            .filter {it > 18}
+            .fold(
+                    100.00,
+                    {
+                        acumulador, iterador -> acumulador -iterador
+                    }
+            )
+           // .also { print(it) }
+
+
+ println(vidaActual)
 
 }
 
@@ -168,6 +227,54 @@ fun calcularSueldo(
 fun imprimirMensaje():Unit { //unit = void
     println("")
 }
+
+//CLASES ABSTRACTAS
+
+/*abstract class NumerosJava{
+    val numeroUno: Int
+    val numeroDos: Int
+    constructor(uno: Int, dos: Int){
+        numeroUno = uno
+        numeroDos = dos
+    }
+}*/
+
+abstract class NumerosKotlin( //val nuevosNuemeros = Numeros(1,2)
+       protected val numeroUno: Int,
+        protected val numeroDos: Int
+){
+
+}
+
+class Suma(
+       uno : Int, //parametro
+       dos:Int //parametro
+):NumerosKotlin(uno, dos ) //mandamos construtor de numerosKotlin - calse heredada
+{
+    fun sumar(): Int{
+        return this.numeroUno + this.numeroDos
+    }
+
+}
+
+class SumaDos(
+       public var  uno : Int, //propiedades
+       public var dos:Int //propiedades
+):NumerosKotlin(uno, dos ) //mandamos construtor de numerosKotlin - calse heredada
+{
+
+    fun sumar(): Int{
+        this.uno
+        this.dos
+        return this.numeroUno + this.numeroDos
+    }
+
+}
+
+
+
+
+
 
 
 
