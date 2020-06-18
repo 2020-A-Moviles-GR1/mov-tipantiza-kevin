@@ -188,11 +188,22 @@ fun main(args:Array<String>){
             )
     println(respuestaFold)
 
-    
+
+    //SITUACION
+    // REDUCIR EL DAÑO EN 20%
+    // 18
+    val vidaActual: Double = arregloCumpleanos
+            .map {it * 0.8} //reducir en el 20%
+            .filter {it > 18} 
+            .fold(
+                    100.00,
+                    {
+                        acumulador, iterador -> acumulador -iterador
+                    }
+            )
 
 
-
-
+ println(vidaActual)
 
 }
 
