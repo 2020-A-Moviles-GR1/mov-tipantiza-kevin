@@ -143,8 +143,28 @@ fun main(args:Array<String>){
     println(respuestaFilter)
     println(arregloCumpleanos)
 
+    //ANY -> FIlTRAR EL ARREGLO
+    //ANY ->  OR (SOME)
+    //ALL -> AND (EVERY)
+    //AND--> TRUE, TODO LO DEMAS ES FALSO
+    // OR-> TODO SI ES FALSO TODO ES FALSO, LO DEMAS ERA VERDADERO
+    //1) DEVOLVER UNA EXPRESION (TRUE O FALSE)
+    //2) DEVUELVE UN BOOLENANO
+
+    val respuestaAny:Boolean = arregloCumpleanos.any{
+        iterator:Int ->
+        return@any iterator < 25
+    }
+
+    println(respuestaAny)
 
 
+    val respuestaAll:Boolean = arregloCumpleanos.all{
+        iterator:Int ->
+        return@all iterator > 65
+    }
+
+    println(respuestaAll)
 
 
 }
