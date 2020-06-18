@@ -166,6 +166,33 @@ fun main(args:Array<String>){
 
     println(respuestaAll)
 
+    //REDUCE
+    //1) DEVUELVE EL ACUMULADO
+    //2) EN QUE VALOR EMPIEZA
+    //DEVULVE UN NUMERO
+    //("a","b","c","d") -> "abcd" concatenera string
+
+    val respuestaReduce = arregloCumpleanos //Acumulador siempre empiza vacio
+            .reduce { acumulador, iteracion ->
+
+        return@reduce acumulador + iteracion
+    }
+    println(respuestaReduce)
+
+    val respuestaFold:Int = arregloCumpleanos
+            .fold(
+                    100,
+                    { acumulador, iteracion ->
+                        return@fold acumulador - iteracion
+                    }
+            )
+    println(respuestaFold)
+
+    
+
+
+
+
 
 }
 
