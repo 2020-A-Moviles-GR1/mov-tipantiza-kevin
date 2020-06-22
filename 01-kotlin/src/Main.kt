@@ -240,8 +240,8 @@ fun imprimirMensaje():Unit { //unit = void
 }*/
 
 abstract class NumerosKotlin( //val nuevosNuemeros = Numeros(1,2)
-       protected val numeroUno: Int,
-        protected val numeroDos: Int
+       protected var numeroUno: Int,
+        protected var numeroDos: Int
 ){
 
 }
@@ -271,7 +271,33 @@ class SumaDos(
 
 }
 
+class SumarDosNumerosDos(
+        uno: Int,
+        dos : Int
+): NumerosKotlin(uno, dos){
+    constructor(uno:Int?, dos:Int){
+        val numUno = if (uno == null)  0 else uno
+        this.numeroUno = numeroUno
+        this.numeroDos = dos
 
+        println("Hola 1")
+    }
+    constructor(uno:Int, dos:Int?){
+        val numDos = if (dos == null)  0 else dos
+        this.numeroUno = uno
+        this.numeroDos = numDos
+        println("Hola 2")
+    }
+
+    constructor(uno:Int?, dos:Int?){
+        val numUno = if (uno == null)  0 else uno
+        val numDos = if (dos == null)  0 else dos
+        this.numeroUno = numeroUno
+        this.numeroDos = numDos
+        println("Hola 3")
+    }
+
+}
 
 
 
