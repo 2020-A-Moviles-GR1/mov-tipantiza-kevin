@@ -203,10 +203,44 @@ fun main(args:Array<String>){
             )
            // .also { print(it) }
 
+    val nuevoNumeroUno= SumarDosNumerosDos(1,1)
+    val nuevoNumeroDos = SumarDosNumerosDos(null,1)
+    val nuevoNumeroTres = SumarDosNumerosDos(1,null)
+    val nuevoNumeroCuatro = SumarDosNumerosDos(null,null)
 
- println(vidaActual)
+    println(SumarDosNumerosDos.arregloNumero)
+    SumarDosNumerosDos.agregarNumero(1)
+    println(SumarDosNumerosDos.arregloNumero)
+    SumarDosNumerosDos.eliminarNumero(0)
+    println(SumarDosNumerosDos.arregloNumero)
+
+
+// println(vidaActual)
+
+    //revisar si es null
+        var nombre: String? = null
+
+        nombre = "kevin"
+       // println(nombre.length)
+        imprimirNombre(nombre)
+
+
+}//CERRADO MAIN
+
+fun imprimirNombre(nombre: String?){
+
+  //  if (nombre != null) {
+   //     println(nombre.length)
+   // }
+    //llamdas seguras a propiedades que puedan ser nuelas
+    println(nombre?.length) //elvis operator
+                            //Null safe call
+   // val numeroCar: Unit = if(nombre != null)
+    //val numeroCaracteres : String ? = nombre?.length
+
 
 }
+
 
 
 //FUNCONES
@@ -240,8 +274,8 @@ fun imprimirMensaje():Unit { //unit = void
 }*/
 
 abstract class NumerosKotlin( //val nuevosNuemeros = Numeros(1,2)
-       protected val numeroUno: Int,
-        protected val numeroDos: Int
+       protected var numeroUno: Int,
+        protected var numeroDos: Int
 ){
 
 }
@@ -271,11 +305,50 @@ class SumaDos(
 
 }
 
+class SumarDosNumerosDos(
+        uno: Int,
+        dos : Int
+): NumerosKotlin(uno, dos){
+
+    init {
+        println("HOLA INIT")
+    }
+
+    constructor(uno:Int?, dos:Int): this( if (uno == null)  0 else uno, dos) {
+        println("Hola 1")
+    }
+    constructor(uno:Int, dos:Int?):this(if (dos == null)  0 else dos, uno) {
+        println("Hola 2")
+    }
+
+    constructor(uno:Int?, dos:Int?): this(if (uno == null)  0 else uno,if (dos == null)  0 else dos ){
+
+        println("Hola 3")
+    }
+
+    //propiedad o metodo estaticos --> utilizado para usar datos de una base de datos locales
 
 
+    companion object{
+        val arregloNumeroInicial = arrayListOf(1,2,3,4)
+        val arregloNumero = arrayListOf(1,2,3,4)
 
+        fun agregarNumero(nuevoNumero:Int){
+            this.arregloNumero.add(nuevoNumero)
+        }
 
+        fun eliminarNumero (posicionNumero:Int){
+            this.arregloNumero.removeAt(posicionNumero)
+        }
+    }
 
+}
+
+class BaseDeDatos {
+    companion object {
+        val datos = arrayListOf<Int>()
+    }
+}
 
 
 
