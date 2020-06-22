@@ -203,10 +203,13 @@ fun main(args:Array<String>){
             )
            // .also { print(it) }
 
+    val nuevoNumeroUno= SumarDosNumerosDos(1,1)
+    val nuevoNumeroDos = SumarDosNumerosDos(null,1)
+    val nuevoNumeroTres = SumarDosNumerosDos(1,null)
+    val nuevoNumeroCuatro = SumarDosNumerosDos(null,null)
+// println(vidaActual)
 
- println(vidaActual)
-
-}
+}//CERRADO MAIN
 
 
 //FUNCONES
@@ -275,25 +278,15 @@ class SumarDosNumerosDos(
         uno: Int,
         dos : Int
 ): NumerosKotlin(uno, dos){
-    constructor(uno:Int?, dos:Int){
-        val numUno = if (uno == null)  0 else uno
-        this.numeroUno = numeroUno
-        this.numeroDos = dos
-
+    constructor(uno:Int?, dos:Int): this( if (uno == null)  0 else uno, dos) {
         println("Hola 1")
     }
-    constructor(uno:Int, dos:Int?){
-        val numDos = if (dos == null)  0 else dos
-        this.numeroUno = uno
-        this.numeroDos = numDos
+    constructor(uno:Int, dos:Int?):this(if (dos == null)  0 else dos, uno) {
         println("Hola 2")
     }
 
-    constructor(uno:Int?, dos:Int?){
-        val numUno = if (uno == null)  0 else uno
-        val numDos = if (dos == null)  0 else dos
-        this.numeroUno = numeroUno
-        this.numeroDos = numDos
+    constructor(uno:Int?, dos:Int?): this(if (uno == null)  0 else uno,if (dos == null)  0 else dos ){
+
         println("Hola 3")
     }
 
