@@ -1,0 +1,6 @@
+etica,optativa,2020A,9-11,1
+programacion,profesional,2020A,14-16,2
+fisica,basica,2020A,16-18,13
+algebra,basica,2020A,7-9,14
+web,profesional,2020A,11-13,5
+ADSOR,profesional,2020A,18-20,20
