@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_b_list_view.*
+import kotlinx.android.synthetic.main.activity_ciclo_vida.*
 
 class BListViewActivity : AppCompatActivity() {
 
@@ -25,6 +26,7 @@ class BListViewActivity : AppCompatActivity() {
         listaEntrenadores.add(Entrenador("Pedro","Salazar"))
         listaEntrenadores.add(Entrenador("Maria","Duran"))
 
+        //mostrar la lista de entrenadores en el emulador(dispositivo)
         val adaptador = ArrayAdapter(
             this, //enviamos el contexto
             android.R.layout.simple_list_item_1, //enviamos el nombre del layout
@@ -37,5 +39,20 @@ class BListViewActivity : AppCompatActivity() {
             Log.i("list-view", "Posicion $position")
         }
 
+
+
+        //añador listener para cuando se de click hacer algo
+
+        btn_anadir_entrenador.setOnClickListener{
+            anadirEntrenador(adaptador,listaEntrenadores)
+        }
+
     }
+
+    fun anadirEntrenador(adaptador: ArrayAdapter<Entrenador>,listaEntrenadores:ArrayList<Entrenador>){
+
+        listaEntrenadores.add(Entrenador("nuevo","Entrenador"))
+        adaptador.notifyDataSetChanged()
+    }
+
 }
