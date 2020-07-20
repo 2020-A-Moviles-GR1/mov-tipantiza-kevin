@@ -23,9 +23,22 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btn_intent_respuesta.setOnClickListener{
+            irAinterntConRespuesta()
+        }
+
 
     }
 
+
+    fun irAinterntConRespuesta(){
+    val intentExplicito = Intent (
+        this,
+        IntentEnviaParametros::class.java
+    )
+        intentExplicito.putExtra("numero",2)
+        startActivity(intentExplicito)
+    }
 
     //ir ciclo de vida
 
@@ -49,6 +62,9 @@ class MainActivity : AppCompatActivity() {
        // this.startActivity(intentExplicito)
         startActivity(intentExplicito)
     }
+
+
+
 
 
 
