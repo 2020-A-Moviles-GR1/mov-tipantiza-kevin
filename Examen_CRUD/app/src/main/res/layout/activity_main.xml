@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo"
+        tools:context=".MainActivity">
+
+    <EditText
+            android:id="@+id/input_Nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/input_nombre"
+            app:layout_constraintBottom_toTopOf="@+id/btn_entrar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.401"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.695" />
+
+    <Button
+            android:id="@+id/btn_entrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="140dp"
+            android:text="@string/btn_entrar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.442"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡ Bienvenido  a las Matriculas !"
+            android:textColor="#0B0B0B"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/input_Nombre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.438"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.709" />
+</android.support.constraint.ConstraintLayout>
