@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -111,11 +112,21 @@ class MainActivity : AppCompatActivity() {
 
 
     fun irAinterntConRespuesta(){
+
     val intentExplicito = Intent (
         this,
         IntentEnviaParametros::class.java
     )
         intentExplicito.putExtra("numero",2)
+        //crear un usuario
+        val kevin = Usuario("kevin",24, Date(),1.0)
+
+        val cachetes = Mascota ("Cachetes", kevin)
+
+        val arregloMascotas = arrayListOf<Mascota>(cachetes)
+
+        intentExplicito.putExtra("cachetes", cachetes)
+        intentExplicito.putExtra("arregloMascotas", arregloMascotas)
         startActivity(intentExplicito)
     }
 
