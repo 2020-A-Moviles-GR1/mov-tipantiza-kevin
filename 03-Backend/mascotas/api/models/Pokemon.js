@@ -14,6 +14,10 @@ module.exports = {
         usuario: { //RELACION DE UNO A MUCHOS (NOMBRE FK) -MISMO NOMBRE QUE LA RELACION
             model: 'usuario',
             required: true // (Es opcional 1 muchos 0 muchos)
+        },
+        batallas: {
+            collection: 'batalla',
+            via: 'pokemon',
         }
     },
 
