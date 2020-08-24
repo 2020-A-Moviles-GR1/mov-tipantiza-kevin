@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -69,5 +70,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btn_intent_implicito"
         app:layout_constraintTop_toBottomOf="@+id/btn_intent_implicito" />
+
+    <Button
+        android:id="@+id/btn_http"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Http"
+        app:layout_constraintEnd_toEndOf="@+id/btn_resp_propia"
+        app:layout_constraintStart_toStartOf="@+id/btn_resp_propia"
+        app:layout_constraintTop_toBottomOf="@+id/btn_resp_propia" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
