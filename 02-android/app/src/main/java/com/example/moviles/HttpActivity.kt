@@ -41,11 +41,9 @@ val urlPrincipal = "http://192.168.100.29:1337"
         }
 
 
-
-
         val url = urlPrincipal + "/Usuario"
         url.httpGet().responseString{
-            request, response, result ->
+                request, response, result ->
             when(result){
                 is Result.Success ->{
                     val data = result.get()
@@ -65,6 +63,38 @@ val urlPrincipal = "http://192.168.100.29:1337"
                         }
                     }
                 }
+                    /*
+                   //DEBER KLAXON
+
+                                       if(usuarios != null){
+                                           usuarios.forEach{
+                                               Log.i(
+                                                   "http-klaxon",
+                                                   "\nNombre_Usuario: ${it.nombre}\n"
+
+                                               )
+
+                                               if(it.pokemons is List<*>){
+                                                   if(it.pokemons!!.size > 0){
+                                                       it.pokemons!!.forEach{
+                                                           it as PokemonHttp
+
+                                                           Log.i(
+                                                               "http-klaxon",
+                                                               "id_Usuario: ${it.usuario} ------- Nombre_Pokemon: ${it.nombre}\n"
+                                                           )
+                                                       }
+                                                   }
+                                               }
+
+                                           }
+                                       }
+                                       Log.i("http-klaxon","\n\nCONSULTAR POKEMONS\n\n")
+                                       obtenerPokemons()
+
+                                       //DEBER KLAXON
+                   */
+
                 is Result.Failure ->{
                     val ex = result.getException()
                     Log.i("http-klaxon","Error: ${ex.message}")
@@ -72,6 +102,48 @@ val urlPrincipal = "http://192.168.100.29:1337"
             }
         }
 
+    }
+
+/*
+//DEBER KLAXON
+    fun obtenerPokemons() {
+
+        val url = urlPrincipal + "/pokemon"
+
+        url
+            .httpGet()
+            .responseString{
+                    request, response, result ->
+
+                when(result){
+                    is Result.Success ->{
+                        val data = result.get()
+
+                        val pokemons = Klaxon()
+                            .converter(PokemonHttp.myConverter)
+                            .parseArray<PokemonHttp>(data)
+
+
+                        if(pokemons != null){
+                            pokemons.forEach{
+                                Log.i("http-klaxon", "NOMBRE POKEMON: ${it.nombre}" + ", Usuario: ${it.usuario}\n"
+
+                                )
+
+                            }
+                        }
+                    }
+                    is Result.Failure ->{
+                        val ex = result.getException()
+                        Log.i("http-klaxon","Error: ${ex.message}")
+                    }
+                }
+
+            }
 
     }
+
+//DEBER KLAXON
+*/
+
 }
