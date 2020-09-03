@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import com.beust.klaxon.Klaxon
 import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.httpPost
 import kotlinx.android.synthetic.main.activity_http.*
 import com.github.kittinunf.result.Result
 
@@ -18,8 +19,44 @@ val urlPrincipal = "http://192.168.100.29:1337"
        btn_obtener.setOnClickListener{
            obtenerusuario()
        }
+
+        btn_crear.setOnClickListener{
+            crearUsuario()
+        }
     }
 
+
+    fun crearUsuario(){
+        val url = urlPrincipal + "/Usuario"
+        //crear una lista
+        val parametrosUsuario:List<Pair<String, String>> = listOf(
+            "cedula" to "1234567891",
+            "nombre" to "henry",
+            "correo" to "h@h.com",
+            "estadoCivil" to "Casado",
+            "password" to "A123456789b"
+
+        )
+        url.httpPost(parametrosUsuario)
+            .responseString{
+                request, response, result ->
+                when(result){
+                    is Result.Failure -> {
+                        val error = result.getException()
+                        Log.i("http-klaxon", "Error: {$error}")
+
+                    }
+                    is Result.Success ->{
+                        var usuarioString = result.get()
+                        Log.i("http-klaxon","${usuarioString}")
+
+                    }
+                }
+            }
+
+
+
+    }
 
     fun obtenerusuario(){
         //pokemon
