@@ -48,8 +48,24 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btn_mapa.setOnClickListener{
+            abrirMapaActivity()
+
+
+        }
+
 
     }
+
+    fun abrirMapaActivity(){
+        val intentExplicito = Intent(
+            this,
+            MapsActivity::class.java
+        )
+
+        startActivity(intentExplicito)
+    }
+
     fun abrirRecyclerViewActivity(){
         val intentExplicito = Intent(
             this,
